@@ -3,8 +3,8 @@ package ai0326;
 import java.util.Scanner;
 
 class BMI {
-    private double heightCm;
-    private double weightKg;
+    private final double heightCm;
+    private final double weightKg;
 
     public BMI(double heightCm, double weightKg) {
         this.heightCm = heightCm;
@@ -20,8 +20,7 @@ class BMI {
         return weightKg / Math.pow(meter, 2.0);
     }
 
-    public String getCategory() {
-        double bmi = calculateBMI();
+    public static String getCategory(double bmi) {
         if (bmi < 18.5) {
             return "저체중";
         } else if (bmi < 23.0) {
@@ -50,8 +49,14 @@ public class BMICalculator {
         double height = scanner.nextDouble();
         double weight = scanner.nextDouble();
 
+        if (height <= 0 || weight <= 0) {
+            System.out.println("잘못된 입력입니다.");
+            return;
+        }
+
         BMI userBMI = new BMI(height, weight);
-        System.out.printf("%s님의 BMI 지수 결과: %.2fkg/㎡ (%s)", name, userBMI.calculateBMI(), userBMI.getCategory());
+        double bmi = userBMI.calculateBMI();
+        System.out.printf("%s님의 BMI 지수 결과: %.2fkg/㎡ (%s)", name, bmi, BMI.getCategory(bmi));
 
         scanner.close();
     }
