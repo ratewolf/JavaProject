@@ -1,7 +1,6 @@
 package ai0521.rabbit;
 
 public class Rabbit {
-    private String name;
     private String shape;
     private int xPos;
     private int yPos;
@@ -11,14 +10,6 @@ public class Rabbit {
 
     public Rabbit(String shape) {
         this.shape = shape;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getShape() {
