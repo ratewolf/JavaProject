@@ -2,8 +2,8 @@ package ai0611.abstractTest;
 
 public class RunPerson {
     public static void main(String[] args) {
-
         // 추상(abstract) 클래스는 new 연산자로 객체 생성이 불가능하다.
+        // Person person = new Person();
         Men men = new Men();
         men.name = "김폴리";
         men.weight = 70;
